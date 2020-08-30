@@ -1,6 +1,4 @@
 const http = require('http');
-
-
 http.createServer((req , res) => {
     if(req.url == '/') {
         let sum = 5 + 6
@@ -12,7 +10,6 @@ http.createServer((req , res) => {
         res.end();
         return
     }
-   
 }).listen('8000',() => {
     console.log('serve is running on 8000');
 })
