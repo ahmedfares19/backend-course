@@ -1,19 +1,25 @@
-const mongoose = require("mongoose");
-const playerSchema = new mongoose.Schema({
-  name: {
-    type: String,
+var mongoose = require('mongoose')
+  , Schema = mongoose.Schema
+const playerSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+    },
+    number: {
+      type: Number,
+    },
+    age: { type: Number },
+    salary: {
+      type: Number,
+    },
+    nationalty: { type: String },
+    club: { type: Schema.Types.ObjectId, ref: 'Club'}
   },
-  number: {
-    type: Number,
-  },
-  age: { type: Number },
-  club: {
-    type: String,
-  },
-  salary: {
-    type: Number,
-  },
-  nationalty: { type: String },
-});
-const playerModel = mongoose.model('playerModel',playerSchema)
+  
+  {
+    collection: "Player",
+    timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" },
+  }
+);
+const playerModel = mongoose.model("Player", playerSchema);
 module.exports = playerModel;
